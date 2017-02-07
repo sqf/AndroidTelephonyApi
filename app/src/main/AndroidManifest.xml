@@ -3,6 +3,11 @@
     package="com.example.samir.myapplication5n">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -10,18 +15,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-        <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-        <receiver android:name="MainBlockingActivity" android:enabled="true" android:exported="true">
-
+        <receiver
+            android:name=".MainBlockingActivity"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.ACTION_NEW_OUTGOING_CALL">
-                </action>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"></action>
             </intent-filter>
-
         </receiver>
 
+        <receiver
+            android:name=".AutoRespondBroadcastActivity"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -31,6 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BasicInfoActivity" />
+        <activity android:name=".AutoRespondActivity" />
     </application>
 
 </manifest>

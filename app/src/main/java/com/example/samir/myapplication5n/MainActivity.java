@@ -25,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, BasicInfoActivity.class));
             }
         });
+
+        final Button buttonRespond = (Button) findViewById(R.id.buttonRespond);
+        buttonRespond.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AutoRespondActivity.class));
+            }
+        });
+
         final Button buttonBlocking = (Button) findViewById(R.id.buttonBlocking);
         buttonBlocking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

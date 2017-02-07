@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainBlockingActivity extends BroadcastReceiver {
 
-    public static final String ABORT_PHONE_NUMBER = "111222333";
+    public static final String ABORT_PHONE_NUMBER = "+48000111222";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -24,7 +24,7 @@ public class MainBlockingActivity extends BroadcastReceiver {
                     MainBlockingActivity.ABORT_PHONE_NUMBER)) {
                 Toast.makeText(context,
                         "NEW_OUTGOING_CALL intercepted to number "
-                                + "111-222-333 - aborting call",
+                                + "+000-0000-000 - aborting call",
                         Toast.LENGTH_LONG).show();
                 this.abortBroadcast();
             }
